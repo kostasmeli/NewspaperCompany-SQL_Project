@@ -60,14 +60,6 @@ CREATE TABLE ChiefEditor(
  ON UPDATE CASCADE
 )ENGINE=InnoDB;
 
-CREATE TABLE Publisher(
- email VARCHAR(30),
- PRIMARY KEY(email),
- CONSTRAINT publishertoemployee
- FOREIGN KEY (email) REFERENCES Employee (email)
- ON DELETE CASCADE
- ON UPDATE CASCADE
-)ENGINE=InnoDB;
 
 CREATE TABLE Categories(
  Category_code INT,
@@ -81,6 +73,23 @@ CREATE TABLE Categories(
  ON UPDATE CASCADE
 )ENGINE=InnoDB;
 
+CREATE TABLE Leaflet(
+  leaflet_number INT,
+  newspaper_name VARCHAR(20),
+  numberofpages INT Default 30,
+  number_copy INT,
+  copies_notsold INT,
+  publish_date DATE,
+  leaflet_publisher VARCHAR(30),
+  PRIMARY KEY (leaflet_number,newspaper_name),
+  CONSTRAINT publisherofnp
+  FOREIGN KEY (leaflet_publisher) REFERENCES employee (email),
+  CONSTRAINT npleafetconnection
+  FOREIGN KEY (newspaper_name) REFERENCES Newspaper (newspaper_name)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
 CREATE TABLE Article(
  path VARCHAR(100),
  Title VARCHAR(30),
@@ -88,7 +97,11 @@ CREATE TABLE Article(
  Paper_number INT,
  Paper_order INT,
  Category_code INT,
+ Accepted_Date DATE DEFAULT NULL,
+ Number_of_Leaflet INT,
  PRIMARY KEY (path),
+ CONSTRAINT theleafletnumber
+ FOREIGN KEY (Number_of_Leaflet) REFERENCES Leaflet (leaflet_number),
  CONSTRAINT articlecategory
  FOREIGN KEY (Category_code) REFERENCES Categories (Category_code)
  ON DELETE CASCADE
@@ -151,36 +164,6 @@ CREATE TABLE Checks(
   FOREIGN KEY (chiefeditor) REFERENCES ChiefEditor (email),
   CONSTRAINT articletobechecked
   FOREIGN KEY (article) REFERENCES Article (path)
-  ON DELETE CASCADE
-  ON UPDATE CASCADE
-)ENGINE=InnoDB;
-
-CREATE TABLE ACCEPTEDArticle(
-  pathofaccepted VARCHAR(100),
-  dateaccepted DATE,
-  publisher VARCHAR(30),
-  PRIMARY KEY (pathofaccepted),
-  CONSTRAINT acceptedpath
-  FOREIGN KEY (pathofaccepted) REFERENCES Article (path),
-  CONSTRAINT publisheris
-  FOREIGN KEY (publisher) REFERENCES Publisher (email)
-  ON DELETE CASCADE
-  ON UPDATE CASCADE
-)ENGINE=InnoDB;
-
-CREATE TABLE Leaflet(
-  leaflet_number INT,
-  newspaper_name VARCHAR(20),
-  numberofpages INT Default 30,
-  number_copy INT,
-  copies_notsold INT,
-  publish_date DATE,
-  leaflet_publisher VARCHAR(30),
-  PRIMARY KEY (leaflet_number,newspaper_name),
-  CONSTRAINT publisherofnp
-  FOREIGN KEY (leaflet_publisher) REFERENCES Publisher (email),
-  CONSTRAINT npleafetconnection
-  FOREIGN KEY (newspaper_name) REFERENCES Newspaper (newspaper_name)
   ON DELETE CASCADE
   ON UPDATE CASCADE
 )ENGINE=InnoDB;
