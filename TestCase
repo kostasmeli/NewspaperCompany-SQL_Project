@@ -1,0 +1,38 @@
+/* TEST CASE 30/9/2020 */
+INSERT INTO Newspaper VALUES("ceid news","Weekly",null);
+INSERT INTO Newspaper VALUES("kathimerini","Daily","ramantani");
+
+INSERT INTO Employee VALUES("johnsnow@gmail.com","2005-10-28","john","snow",900);
+INSERT INTO Works VALUES("johnsnow@gmail.com","ceid news");
+INSERT INTO Journalist VALUES("johnsnow@gmail.com",5,"ekpa journal graduate");
+
+INSERT INTO Employee VALUES("helen@gmail.com","2011-06-11","eleni","papadopoulou",900);
+INSERT INTO Works VALUES("helen@gmail.com","ceid news");
+INSERT INTO Administrator VALUES("helen@gmail.com",'Secretary',"thermopylon",21,"patra");
+
+INSERT INTO Employee VALUES("doris@gmail.com","2016-07-04","thodoris","theo",1100);
+INSERT INTO Works VALUES("doris@gmail.com","ceid news");
+INSERT INTO Journalist VALUES("doris@gmail.com",6,"a great worker");
+INSERT INTO ChiefEditor VALUES("doris@gmail.com");
+
+INSERT INTO Employee VALUES("sylvana@gmail.com","2015-05-30","sylvanas","windrunner",2000);
+INSERT INTO Works VALUES("sylvana@gmail.com","ceid news");
+
+INSERT INTO Employee VALUES("makis@gmail.com","2010-07-15","makis","kotsabasis",1500);
+INSERT INTO Works VALUES("makis@gmail.com","kathimerini");
+INSERT INTO Journalist VALUES ("makis@gmail.com",3,"has writen about 100 articles at many prestigious newspapers");
+
+INSERT INTO Employee VALUES("tsola@gmail.com","2007-05-25","fotis","tsolakidis",700);
+INSERT INTO Works  VALUES("tsola@gmail.com","kathimerini");
+INSERT INTO Administrator VALUES("tsola@gmail.com","Logistics","zografou",105,"athens");
+
+INSERT INTO Employee VALUES("quik@gmail.com","2010-12-30","hlias","quik",1200);
+INSERT INTO Works VALUES("quik@gmail.com","kathimerini");
+INSERT INTO Journalist VALUES ("quik@gmail.com",2,"a new talent");
+INSERT INTO ChiefEditor VALUES("quik@gmail.com");
+
+INSERT INTO Employee VALUES("sanjivin@gmail.com","2018-02-20","sanji","vinsmoke",1000);
+INSERT INTO Works VALUES("sanjivin@gmail.com","kathimerini");
+
+
+INSERT INTO Leaflet VALUES(1,"ceid news",40,500,300,"2020-09-28","sylvana@gmail.com");
