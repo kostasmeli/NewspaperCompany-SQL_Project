@@ -34,5 +34,23 @@ INSERT INTO ChiefEditor VALUES("quik@gmail.com");
 INSERT INTO Employee VALUES("sanjivin@gmail.com","2018-02-20","sanji","vinsmoke",1000);
 INSERT INTO Works VALUES("sanjivin@gmail.com","kathimerini");
 
+INSERT INTO Categories VALUES(1050,"Pandemic","an epidemic occurring worldwide",null);
+INSERT INTO Categories VALUES(2013,"Covid-19","a new virus",1050);
 
 INSERT INTO Leaflet VALUES(1,"ceid news",40,500,300,"2020-09-28","sylvana@gmail.com");
+/* what if the journalist is chiefeditor ? then it should be accepted at checks table  with date of check == date of accepted */
+/*Trigger D test */
+INSERT INTO article VALUES("c:\articlesofceidnews\covidisnotfake","Covid is real","covid is not fake as some people insists",2,2,2013,null,1);
+INSERT INTO Submit VALUES("doris@gmail.com","c:\articlesofceidnews\covidisnotfake","2020-05-25");
+
+/* StoredProcedure A test */
+INSERT INTO article VALUES("C:\articlesofceidnews\covidlockdown","Lockdown coming","increasing number of patients",3,1,2013,null,1);
+INSERT INTO Submit VALUES("johnsnow@gmail.com","C:\articlesofceidnews\covidlockdown","2020-05-20");
+INSERT INTO Checks VALUES("doris@gmail.com","C:\articlesofceidnews\covidlockdown","its great","accepted","2020-05-26");
+CALL newspaper1(1,"ceid news",@result);
+
+/*StoredProcedure B test */
+call misthos("makis@gmail.com");
+call misthos("tsola@gmail.com"); /* sets null because he is not journalist */
+
+/* Triger C Test */
