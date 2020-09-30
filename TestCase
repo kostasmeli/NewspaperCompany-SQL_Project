@@ -54,3 +54,12 @@ call misthos("makis@gmail.com");
 call misthos("tsola@gmail.com"); /* sets null because he is not journalist */
 
 /* Triger C Test */
+INSERT INTO Employee Values("testfortriggerc@gmail.com","2012-02-03","giwrgos","gewrgiou",null);
+
+/* Triger E test */
+INSERT INTO article VALUES("C:\articlesofceidnews\article1","Test1","what will happen",10,3,2013,null,1);
+INSERT INTO Submit VALUES("doris@gmail.com","C:\articlesofceidnews\article1","2020-09-29");
+INSERT INTO article VALUES("C:\articlesofceidnews\article2",'Test2',"what will happen",20,4,2013,null,1);
+INSERT INTO Submit VALUES("doris@gmail.com","C:\articlesofceidnews\article2","2020-09-29");
+INSERT INTO article VALUES("C:\articlesofceidnews\article3","Test3","what will happen",6,5,2013,null,1);
+INSERT INTO Submit VALUES("doris@gmail.com","C:\articlesofceidnews\article3","2020-09-29");

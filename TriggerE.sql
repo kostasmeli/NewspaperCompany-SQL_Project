@@ -11,7 +11,7 @@ THEN
 SET NEW.Accepted_Date=Null;
 END IF;
 
-SELECT SUM(Paper_number) INTO Sum  FROM Article WHERE Article.Number_of_Leaflet=New.Number_of_Leaflet and Accepted_Date IS NOT NULL;
+SELECT SUM(Paper_number) INTO Sum  FROM Article WHERE Article.Number_of_Leaflet=New.Number_of_Leaflet ;
 
 SELECT numberofpages INTO selides FROM Leaflet WHERE Leaflet.leaflet_number=New.Number_of_Leaflet;
 
