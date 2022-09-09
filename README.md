@@ -1,2 +1,1 @@
-# NewspaperCompany-SQL_Project
 
